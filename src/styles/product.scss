@@ -1,0 +1,222 @@
+/*************************************/
+/*** PRODUCT PAGE - GENERAL STYLES ***/
+/*************************************/
+
+// One thing to note, bootstrap ('yarn add bootstrap') and react ('yarn add reactstrap') are required 
+
+
+/* Stylesheet Imports */
+@import 'fonts.scss'; 
+@import 'variables.scss';
+
+/* Helper Classes */
+.p-unset {
+    position: unset;
+}
+
+/* Product Page Container */
+.container_page_clinique {
+    padding-top: 100px;
+    @include tablet-and-up { // Tablet and Up View (768px+)
+        padding-top: 184px; // to set container below navigation 
+    }
+    @include desktop-lg { // Large Desktop and Up View (1220px+)
+        max-width: 1180px; // to set the container width to match the website
+    }
+    @include smaller-mobile { // Smaller Mobile View (576px-)
+        max-width: 100%;
+    }
+
+    /* Product Image Figure --- Left Column */
+    figure {
+        img.image_clinique { // Product Image
+            width: 100%;
+            max-width: 576px;
+        }
+    }
+
+    /* Product Description Section --- Right Column */
+    section.section_description {
+        h4.heading_category { // Product Category Heading
+            font-size: 17px;
+            line-height: 24px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: $font-color_grey;
+            @include mobile { // Mobile View (767px-)
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: 0.03em;
+            }
+            @include smaller-mobile { // Smaller Mobile View (576px-)
+                position: absolute; // to position Product Categories Heading below the header
+                top: 90px; // to accommodate the header above
+                left: 15px; // to accommodate for left column margin
+            }
+        }
+        h2.heading_name { // Product Name Heading
+            font-family: $elc-font-standard;
+            font-size: 28px;
+            line-height: 32px;
+            font-weight: bold;
+            letter-spacing: -0.02em;
+            text-align: left;
+            padding-right: 50px; // to match copy per line
+            color: $font-color_black;
+            @include mobile { // Mobile View (767px-)
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: -0.01em;
+                text-align: left;
+            }
+        }
+        p.p_description { // Product Description Paragraph
+            font-size: 17px;
+            line-height: 24px;
+            letter-spacing: 0.02em;
+            text-align: left;
+            color: $font-color_black;
+            padding-right: 40px; // to match copy per line
+            @include mobile { // Mobile View (767px-)
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+    
+        /* Product Rating Figure */
+        figure.figure_rating { 
+            img.img_current-rating { // Current Product Rating Image
+                width: 120px;
+                @include mobile { // Mobile View (767px-)
+                    width: 115px;
+                }
+            }
+            img.icon_view-all-ratings { // View all Product Ratings Icon
+                width: 20px; // arrow size is 8px, however needs to be larger to accommodate for padding within the image
+            }
+        }
+
+        /* Product Features Section */
+        section.section_features {
+            h4.heading_feature, p.p_feature { // All Product Features Section Text
+                font-size: 17px;
+                line-height: 24px;
+                text-align: left;
+                color: $font-color_black;
+                @include mobile { // Mobile View (767px-)
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+            h4.heading_feature { // Product Feature Title
+                font-weight: bold;
+                letter-spacing: -0.01em;
+            }
+            p.p_feature { // Product Feature Paragraph
+                font-weight: normal;
+                letter-spacing: -0.02em;
+
+                .link_feature-more-ingredients {
+                    text-decoration: underline;
+                    text-underline-offset: 4px; // to lower the position the undeline of the link
+                    color: $font-color_grey;
+                    &:hover, &:focus{ // Link Hover and Focus States
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        /* Product Shade Section */
+        .section_shade {
+            @include tablet-and-up { // Tablet and Up View (768px+)
+                width: 265px;
+            }
+            width: 100%;
+            border: solid 1px $border-color_grey;
+            padding: 19px; 
+            .span_shade-name { // Product Shade Name Title 
+                font-size: 17px;
+                line-height: 24px;
+                font-weight: bold;
+                letter-spacing: -0.01em;
+                text-align: left;
+                @include mobile { // Mobile View (767px-)
+                    font-size: 15px;
+                    line-height: 20px;
+                }
+            }
+            .icon_shade-color { // Product Shade Color Preview
+                width: 16px;
+                height: 16px;
+                background: $shade-color_WN04;
+            }
+        }
+    }
+
+    /* Product Purchase Section */
+    .section_purchase{
+        .col_purchase-quantity,
+        .col_purchase-one-time { // Both Product Purchase Quantity and One Time Purchase Columns
+            font-size: 17px;
+            line-height: 24px;
+            letter-spacing: -0.01em;
+            font-weight: bold;
+            text-align: left;
+            color: $font-color_black;
+            @include mobile { // Mobile View (767px-)
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+        .col_purchase-quantity{ // Product Purchase Quantity Column
+            img.icon_decrease-quantity, // Decrease Product Quantity Icon
+            img.icon_increase-quantity{ // Increase Product Quantity Icon
+                width: 16px;
+                height: 16px;
+            }
+        }
+        .col_purchase-one-time { // Product One Time Purchase Column
+            @include mobile { // Mobile View (767px-)
+                text-align: right;
+            }
+            img.icon_select-frequency  { // Select Product Frequency Icon
+                width: 20px;
+            }
+        }
+        .col_purchase-price { // Product Purchase Price Column
+            span.span_purchase-price { // Product Purchase Price Text
+                font-size: 28px;
+                line-height: 32px;
+                letter-spacing: -0.02em;
+                font-weight:bold;
+                text-align: left;
+                color: $font-color_black;
+                @include mobile { // Mobile View (767px-)
+                    font-size: 20px;
+                    line-height: 24px;
+                    letter-spacing: -0.01em;
+                }
+            }
+        }
+        .col_purchase-button { // Product Purchase Button Column
+            button.btn_add-to-bag { // Add to Bag Button
+                width: 100%;
+                min-height: 56px;
+                background: $bg-color_black;
+                font-size: 17px;
+                line-height: 24px;
+                letter-spacing: -0.01em;
+                text-align: center;
+                font-weight: bold;
+                @include tablet-and-up { // Tablet and Up View (768px+)
+                    max-width: 276px;
+                    min-height: 64px;
+                }
+                &:hover, &:focus { // Button Hover and Focus States
+                    background: lighten($bg-color_black, 25%);
+                }
+            }
+        }
+    }
+}

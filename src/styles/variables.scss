@@ -1,0 +1,86 @@
+/*******************************************/
+/*** PRODUCT PAGE - VARIABLES AND MIXINS ***/
+/*******************************************/
+
+
+/* Color Sceme - Variables */
+$bg-color_black: #000; // Product Background Color - Solid Black
+$font-color_black: #1a1a1a; // Product Font Color - Black
+$font-color_grey: #999; // Product Font Color - Grey
+$border-color_grey: #E6E6E6; // Product Border Color - Light Grey
+$shade-color_WN04: #F6DFC8; // Product Shade Color - WN 04
+
+/* Responsive Media Queries - Variables */
+$desktop-lg-width: 1220px;
+$desktop-md-width: 1024px;
+$desktop-sm-width: 992px;
+$tablet-width: 768px;
+$mobile-width: 576px;
+$smallest-mobile-width: 320px;
+
+/* Responsive Media Queries - Mixins */
+@mixin desktop-lg {
+    @media (min-width: #{$desktop-lg-width}) {
+        @content;
+    }
+}
+@mixin desktop-md {
+    @media (min-width: #{$desktop-md-width}) and (max-width: #{$desktop-lg-width - 1px}) {
+        @content;
+    }
+}
+@mixin desktop-md-and-up {
+    @media (min-width: #{$desktop-md-width}) {
+        @content;
+    }
+}
+@mixin desktop-md-and-below {
+    @media (max-width: #{$desktop-lg-width - 1px}) {
+        @content;
+    }
+}
+@mixin desktop-sm {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-md-width - 1px}) {
+        @content;
+    }
+}
+@mixin desktop-sm-and-up {
+    @media (min-width: #{$desktop-sm-width}) {
+        @content;
+    }
+}
+@mixin desktop-sm-and-below {
+    @media (max-width: #{$desktop-md-width - 1px}) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-sm-width - 1px}) {
+        @content;
+    }
+}
+@mixin tablet-and-up {
+    @media (min-width: #{$tablet-width}) {
+        @content;
+    }
+}
+@mixin tablet-portrait-and-below {
+    @media (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: #{$tablet-width - 1px}) {
+        @content;
+    }
+}
+@mixin smaller-mobile {
+    @media (max-width: #{$mobile-width - 1px}) {
+        @content;
+    }
+}
+@mixin smallest-mobile {
+    @media (max-width: #{$smallest-mobile-width + 1px}) {
+        @content;
+    }
+}
